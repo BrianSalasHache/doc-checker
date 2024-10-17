@@ -7,7 +7,6 @@ import Python from 'tree-sitter-python';
 // import TypeScript from 'tree-sitter-typescript';
 
 const parser = new Parser();
-parser.setLanguage(JavaScript); // Puedes cambiar esto dinámicamente más tarde
 
 export function parseCode(code: string, language: string) {
   switch (language) {
@@ -29,10 +28,7 @@ export function parseCode(code: string, language: string) {
     // case 'ruby':
     //   parser.setLanguage(Ruby);
     //   break;
-    default:
-      throw new Error(`Language ${language} not supported.`);
   }
 
-  const tree = parser.parse(code);
-  return tree;
+  return parser.parse(code);
 }

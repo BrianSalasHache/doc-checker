@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import { parseCode } from '../parser/parser';
-import { analyzeJavaScript } from './languages/javascript';
-import { analyzePython } from './languages/python';
+import { analyzeJavaScript } from './langs/javascript';
+import { analyzePython } from './langs/python';
 
 export function analyzeDocument(
   document: vscode.TextDocument
@@ -10,13 +10,16 @@ export function analyzeDocument(
   const language = document.languageId;
 
   const tree = parseCode(text, language);
-  const rootNode = tree.rootNode;
+  const { rootNode } = tree;
   const diagnostics: vscode.Diagnostic[] = [];
 
-  if (document.languageId === 'python') {
-    analyzePython(rootNode, diagnostics);
-  } else if (document.languageId === 'javascript') {
-    analyzeJavaScript(rootNode, diagnostics);
+  switch (language) {
+    case 'javascript':
+      analyzeJavaScript(rootNode, diagnostics);
+      break;
+    case 'python':
+      analyzePython(rootNode, diagnostics);
+      break;
   }
 
   // function logNodeTypes(node: SyntaxNode) {
