@@ -3,7 +3,8 @@ import * as vscode from 'vscode';
 
 export function createDiagnostic(
   nameNode: SyntaxNode,
-  typeNode: string
+  typeNode: string,
+  isOutdated: boolean = false
 ): vscode.Diagnostic {
   return new vscode.Diagnostic(
     createRange(
@@ -12,7 +13,7 @@ export function createDiagnostic(
       nameNode.endPosition.row,
       nameNode.endPosition.column
     ),
-    createMessage(nameNode, typeNode),
+    createMessage(nameNode, typeNode, isOutdated),
     vscode.DiagnosticSeverity.Warning
   );
 }
@@ -29,6 +30,6 @@ function createRange(
   );
 }
 
-function createMessage(nameNode: SyntaxNode, typeNode: string): string {
-  return `Missing ${typeNode} docstring '${nameNode.text}' | Doc Checker`;
+function createMessage(nameNode: SyntaxNode, typeNode: string, isOutdated: boolean): string {
+  return `${isOutdated ? 'Outdated' : 'Missing'} ${typeNode} docstring '${nameNode.text}' | Doc Checker`;
 }

@@ -25,12 +25,7 @@ export function activate(context: vscode.ExtensionContext) {
         updateDiagnostics(event.document, diagnosticCollection);
       }
     })
-    // vscode.workspace.onDidOpenTextDocument((document) => {
-    // 	if (supportedLanguages.includes(document.languageId)) {
-    // 		updateDiagnostics(document, diagnosticCollection);
-    // 	}
-    // })
   );
 }
 
-export function deactivate() {}
+export function deactivate() { }

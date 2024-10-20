@@ -15,12 +15,47 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "doc-checker.helloWorld",
-        "title": "Hello World"
+    "configuration": {
+      "type": "object",
+      "title": "Doc Checker Configuration",
+      "properties": {
+        "doc-checker.class": {
+          "type": "boolean",
+          "default": true,
+          "description": "Check that all classes have docstring."
+        },
+        "doc-checker.function": {
+          "type": "boolean",
+          "default": true,
+          "description": "Check that all functions have docstring."
+        },
+        "doc-checker.method": {
+          "type": "boolean",
+          "default": true,
+          "description": "Check that all methods have docstring."
+        },
+        "doc-checker.module": {
+          "type": "boolean",
+          "default": true,
+          "description": "Check that all modules have docstring."
+        },
+        "doc-checker.parameter": {
+          "type": "boolean",
+          "default": true,
+          "description": "Check that all functions and methods have updated parameters in their docstring."
+        },
+        "doc-checker.throw": {
+          "type": "boolean",
+          "default": true,
+          "description": "Check that all functions and methods have updated throws in their docstring."
+        },
+        "doc-checker.return": {
+          "type": "boolean",
+          "default": true,
+          "description": "Check that all functions and methods have updated returns in their docstring."
+        }
       }
-    ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

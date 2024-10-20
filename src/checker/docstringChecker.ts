@@ -20,6 +20,9 @@ export function analyzeDocument(
     case 'python':
       analyzePython(rootNode, diagnostics);
       break;
+    case 'typescript':
+      analyzeJavaScript(rootNode, diagnostics);
+      break;
   }
 
   // function logNodeTypes(node: SyntaxNode) {
