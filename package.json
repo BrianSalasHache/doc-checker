@@ -22,37 +22,51 @@
         "doc-checker.class": {
           "type": "boolean",
           "default": true,
-          "description": "Check that all classes have docstring."
+          "description": "Check that all classes have a docstring. Set to 'true' to enable this check."
         },
         "doc-checker.function": {
           "type": "boolean",
           "default": true,
-          "description": "Check that all functions have docstring."
+          "description": "Check that all functions have a docstring. Set to 'true' to enable this check."
         },
         "doc-checker.method": {
           "type": "boolean",
           "default": true,
-          "description": "Check that all methods have docstring."
+          "description": "Check that all methods have a docstring. Set to 'true' to enable this check."
         },
         "doc-checker.module": {
           "type": "boolean",
           "default": true,
-          "description": "Check that all modules have docstring."
+          "description": "Check that all modules have a docstring. Set to 'true' to enable this check."
         },
         "doc-checker.parameter": {
           "type": "boolean",
           "default": true,
-          "description": "Check that all functions and methods have updated parameters in their docstring."
+          "description": "Check that all functions and methods have updated parameters. Set to 'true' to activate."
         },
         "doc-checker.throw": {
           "type": "boolean",
           "default": true,
-          "description": "Check that all functions and methods have updated throws in their docstring."
+          "description": "Check that all functions and methods have updated throws. Set to 'true' to activate."
         },
         "doc-checker.return": {
           "type": "boolean",
           "default": true,
-          "description": "Check that all functions and methods have updated returns in their docstring."
+          "description": "Check that all functions and methods have updated returns. Set to 'true' to activate."
+        },
+        "doc-checker.activateOnChange": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable the checker to run automatically when switching between files."
+        },
+        "doc-checker.mode": {
+          "type": "string",
+          "enum": [
+            "modify",
+            "save"
+          ],
+          "default": "save",
+          "description": "Choose when to activate the checker. 'modify' activates on any file modification, 'save' activates on file save."
         }
       }
     }

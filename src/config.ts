@@ -1,31 +1,40 @@
 import * as vscode from 'vscode';
+import { CLASS, FUNCTION, METHOD, MODULE, PARAMETER, RETURN, THROW } from './constants/constants';
 
 let configuration = vscode.workspace.getConfiguration('doc-checker');
 
 export let config = {
-  checkClass: getConfig('class'),
-  checkFunction: getConfig('function'),
-  checkMethod: getConfig('method'),
-  checkModule: getConfig('module'),
-  checkParameter: getConfig('parameter'),
-  checkThrow: getConfig('throw'),
-  checkReturn: getConfig('return'),
+  checkClass: getConfig(CLASS),
+  checkFunction: getConfig(FUNCTION),
+  checkMethod: getConfig(METHOD),
+  checkModule: getConfig(MODULE),
+  checkParameter: getConfig(PARAMETER),
+  checkThrow: getConfig(THROW),
+  checkReturn: getConfig(RETURN),
+  activateOnChange: getConfig('activateOnChange'),
+  mode: getMode()
 };
 
 function getConfig(property: string): boolean {
   return configuration.get<boolean>(property, true);
 }
 
+function getMode() {
+  return configuration.get<string>('mode', 'save');
+}
+
 function updateConfig() {
   configuration = vscode.workspace.getConfiguration('doc-checker');
   config = {
-    checkClass: getConfig('class'),
-    checkFunction: getConfig('function'),
-    checkMethod: getConfig('method'),
-    checkModule: getConfig('module'),
-    checkParameter: getConfig('parameter'),
-    checkThrow: getConfig('throw'),
-    checkReturn: getConfig('return'),
+    checkClass: getConfig(CLASS),
+    checkFunction: getConfig(FUNCTION),
+    checkMethod: getConfig(METHOD),
+    checkModule: getConfig(MODULE),
+    checkParameter: getConfig(PARAMETER),
+    checkThrow: getConfig(THROW),
+    checkReturn: getConfig(RETURN),
+    activateOnChange: getConfig('activateOnChange'),
+    mode: getMode()
   };
 }
 
