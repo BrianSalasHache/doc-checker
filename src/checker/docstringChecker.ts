@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import { parseCode } from '../parser/parser';
+import { analyzeJava } from './langs/java';
 import { analyzeJavaScript } from './langs/javascript';
 import { analyzePython } from './langs/python';
 
@@ -64,6 +65,9 @@ export function analyzeDocument(document: vscode.TextDocument): vscode.Diagnosti
   const diagnostics: vscode.Diagnostic[] = [];
 
   switch (language) {
+    case 'java':
+      analyzeJava(rootNode, diagnostics);
+      break;
     case 'javascript':
     case 'typescript':
       analyzeJavaScript(rootNode, diagnostics);
@@ -76,15 +80,16 @@ export function analyzeDocument(document: vscode.TextDocument): vscode.Diagnosti
   diagnosticsCache.set(uri, { text, diagnostics, timestamp: currentTime });
   cacheKeys.push(uri);
 
-  // function logNodeTypes(node: SyntaxNode) {
-  //   console.log(`Node type: "${node.type}" is "${node.text}`);
+  // function logNodeTypes(node: SyntaxNode, path: string[] = []) {
+  //   const currentPath = [...path, node.type].join(' > ');
+  //   console.log(`Node type: "${currentPath}" is "${node.text}"`);
 
   //   node.children.forEach((childNode) => {
-  //     logNodeTypes(childNode); // Recorre cada nodo hijo recursivamente
+  //     logNodeTypes(childNode, [...path, node.type]);
   //   });
   // }
 
-  // logNodeTypes(rootNode); // Comienza desde la raíz del documento
+  // logNodeTypes(rootNode);
 
   return diagnostics;
 }

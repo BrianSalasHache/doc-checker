@@ -4,7 +4,7 @@ import { config } from './config';
 
 export function activate(context: vscode.ExtensionContext) {
   const diagnosticCollection = vscode.languages.createDiagnosticCollection('docstringChecker');
-  const supportedLanguages = ['python', 'javascript', 'typescript'];
+  const supportedLanguages = ['java', 'javascript', 'python', 'typescript'];
   const editor = vscode.window.activeTextEditor;
   let debounceTimer: NodeJS.Timeout | null = null;
 
