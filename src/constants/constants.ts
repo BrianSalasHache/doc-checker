@@ -7,4 +7,5 @@ export const THROW = 'throw';
 export const RAISE = 'raise';
 export const RETURN = 'return';
 export const DOCSTRING = 'docstring';
+export const JSDOC = 'JSDoc';
 export const BODY = 'body';
