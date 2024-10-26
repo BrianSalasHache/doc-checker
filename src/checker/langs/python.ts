@@ -5,7 +5,6 @@ import { BODY, CLASS, DOCSTRING, FUNCTION, METHOD, MODULE, RAISE, RETURN } from 
 import { createDiagnostic } from '../../utils/diagnostic';
 
 export function analyzePython(rootNode: SyntaxNode, diagnostics: vscode.Diagnostic[]) {
-  console.log("Se ejecuta analyzePython");
   checkModuleDocstring(rootNode, diagnostics);
   checkClassDocstrings(rootNode, diagnostics);
   checkFunctionAndMethodDocstrings(rootNode, diagnostics);

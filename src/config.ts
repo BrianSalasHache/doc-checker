@@ -12,7 +12,8 @@ export let config = {
   checkThrow: getConfig(THROW),
   checkReturn: getConfig(RETURN),
   activateOnChange: getConfig('activateOnChange'),
-  mode: getMode()
+  mode: getMode(),
+  debounceDelay: getDebounceDelay()
 };
 
 function getConfig(property: string): boolean {
@@ -21,6 +22,10 @@ function getConfig(property: string): boolean {
 
 function getMode() {
   return configuration.get<string>('mode', 'save');
+}
+
+function getDebounceDelay() {
+  return configuration.get<number>('debounceDelay', 300);
 }
 
 function updateConfig() {
@@ -34,7 +39,8 @@ function updateConfig() {
     checkThrow: getConfig(THROW),
     checkReturn: getConfig(RETURN),
     activateOnChange: getConfig('activateOnChange'),
-    mode: getMode()
+    mode: getMode(),
+    debounceDelay: getDebounceDelay()
   };
 }
 

@@ -5,9 +5,8 @@ import { config } from './config';
 export function activate(context: vscode.ExtensionContext) {
   const diagnosticCollection = vscode.languages.createDiagnosticCollection('docstringChecker');
   const supportedLanguages = ['python', 'javascript', 'typescript'];
-
-  // TODO: Algunos se ejecutan varias veces sobre todo el modify creo
   const editor = vscode.window.activeTextEditor;
+  let debounceTimer: NodeJS.Timeout | null = null;
 
   if (editor && supportedLanguages.includes(editor.document.languageId)) {
     updateDiagnostics(editor.document, diagnosticCollection);
@@ -24,11 +23,16 @@ export function activate(context: vscode.ExtensionContext) {
   }
 
   if (config.mode === 'modify') {
-    // TODO: Wait time before executing
     context.subscriptions.push(
       vscode.workspace.onDidChangeTextDocument((event) => {
         if (supportedLanguages.includes(event.document.languageId)) {
-          updateDiagnostics(event.document, diagnosticCollection);
+          if (debounceTimer) {
+            clearTimeout(debounceTimer);
+          }
+
+          debounceTimer = setTimeout(() => {
+            updateDiagnostics(event.document, diagnosticCollection);
+          }, config.debounceDelay);
         }
       }),
     );

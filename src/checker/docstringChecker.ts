@@ -35,8 +35,6 @@ const cleanCache = () => {
       diagnosticsCache.delete(oldestKey);
     }
   }
-
-  cacheKeys.forEach(key => { console.log(key); });
 };
 
 setInterval(cleanCache, 1 * 60 * 1000);

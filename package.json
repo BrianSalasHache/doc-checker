@@ -67,6 +67,11 @@
           ],
           "default": "save",
           "description": "Choose when to activate the checker. 'modify' activates on any file modification, 'save' activates on file save."
+        },
+        "doc-checker.debounceDelay": {
+          "type": "number",
+          "default": 300,
+          "description": "Specifies the delay, in milliseconds, before the checker runs after changes are made. This prevents unnecessary checks by waiting until the user has stopped typing. Increase the delay for slower systems or reduce it for quicker feedback."
         }
       }
     }
