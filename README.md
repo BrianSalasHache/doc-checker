@@ -21,6 +21,14 @@
 ![Example image using Error Lens extension](https://github.com/user-attachments/assets/ca650b98-577a-4146-a828-5d53e072763a)
 
 
+## 📦 Install
+
+1. Go to `View -> Command Palette`
+2. Then enter `Install Extension`
+3. Write `doc-checker`
+4. Select it or press Enter to install
+
+
 ## 📝 Languages supported
 
 - Python
