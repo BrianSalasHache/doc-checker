@@ -3,6 +3,18 @@
   "displayName": "Doc Checker",
   "description": "Missing and outdated documentation checker",
   "version": "0.0.1",
+  "icon": "icons/doc-checker.png",
+  "author": {
+    "name": "Brian Salas",
+    "email": "briansalasfalcone@gmail.com",
+    "url": "https://www.linkedin.com/in/briansalas/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BrianSalasHache/doc-checker.git"
+  },
+  "publisher": "brian-salas-hache",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.94.0"
   },
@@ -114,16 +126,5 @@
     "tree-sitter-java": "^0.23.2",
     "tree-sitter-javascript": "^0.23.0",
     "tree-sitter-python": "^0.23.2"
-  },
-  "icon": "icons/doc-checker.png",
-  "author": {
-    "name": "Brian Salas",
-    "email": "briansalasfalcone@gmail.com",
-    "url": "https://www.linkedin.com/in/briansalas/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BrianSalasHache/doc-checker.git"
-  },
-  "publisher": "brian-salas-hache"
+  }
 }
