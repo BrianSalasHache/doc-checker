@@ -80,16 +80,5 @@ export function analyzeDocument(document: vscode.TextDocument): vscode.Diagnosti
   diagnosticsCache.set(uri, { text, diagnostics, timestamp: currentTime });
   cacheKeys.push(uri);
 
-  // function logNodeTypes(node: SyntaxNode, path: string[] = []) {
-  //   const currentPath = [...path, node.type].join(' > ');
-  //   console.log(`Node type: "${currentPath}" is "${node.text}"`);
-
-  //   node.children.forEach((childNode) => {
-  //     logNodeTypes(childNode, [...path, node.type]);
-  //   });
-  // }
-
-  // logNodeTypes(rootNode);
-
   return diagnostics;
 }

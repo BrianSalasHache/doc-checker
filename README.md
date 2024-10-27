@@ -1,71 +1,60 @@
 # Doc Checker README
 
-This is the README for your extension "doc-checker". After writing up a brief description, we recommend including the following sections.
+[![Badge for version for Visual Studio Code extension](https://vsmarketplacebadges.dev/version/brian-salas-hache.doc-checker.png?color=blue&style=?style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=brian-salas-hache.doc-checker)
+[![The MIT license](https://img.shields.io/badge/license-MIT-orange.png?color=blue&style=flat-square)](https://opensource.org/license/mit)
+[![GitHub](https://img.shields.io/badge/GitHub-BrianSalasHache-blue?style=flat&logo=github)](https://github.com/BrianSalasHache)
 
-## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
 
-For example if there is an image subfolder under your extension project workspace:
 
-\!\[feature X\]\(images/feature-x.png\)
+[![BuyMeACoffee](https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png)](https://www.buymeacoffee.com/briansalashache)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+**This project is `active`, not sponsored or funded.**
 
 ---
 
-## Following extension guidelines
+### This extension checks for missing or obsolete documentation. It checks the module, classes, methods and functions.
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+![Example image](https://github.com/user-attachments/assets/a042897b-00fd-46b1-88b1-a3948a82692c)
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+### I recommend using the [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) extension to view the warnings in this way:
+![Example image using Error Lens extension](https://github.com/user-attachments/assets/ca650b98-577a-4146-a828-5d53e072763a)
 
-## Working with Markdown
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+## 📝 Languages supported
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+- Python
+- JavaScript
+- TypeScript
+- Java
+- 🚧 More under construction
 
-## For more information
+## ⚙️ Settings
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+> **Doc Checker** extension settings start with `doc-checker.`
 
-**Enjoy!**
+| Setting          | Default    | Description                                                                                                           |
+|------------------|------------|-----------------------------------------------------------------------------------------------------------------------|
+| activateOnChange | **true**   | The extension will be activated when a file is changed.                                                               |
+| class            | **true**   | Check that all classes have a docstring.                                                                              |
+| debounceDelay    | **300**    | Specifies the delay, in milliseconds, before the checker runs after changes are made when 'modify' mode is activated. |
+| function         | **true**   | Check that all functions have updated docstring.                                                                      |
+| languages        | **["java", "javascript", "python", "typescript"]** | Specify the languages for which the checker should run.                       |
+| method           | **true**   | Check that all methods have updated docstring.                                                                        |
+| mode             | **"save"** | Choose when to activate the checker. 'modify' activates on any file modification, 'save' activates on file save.      |
+| module           | **true**   | Check that all modules have a docstring.                                                                              |
+| parameter        | **true**   | Check that all functions and methods have updated parameters.                                                         |
+| return           | **true**   | Check that all functions and methods have updated returns.                                                            |
+| throw            | **true**   | Check that all functions and methods have updated throws.                                                             |
+
+## 🤝 Contributing
+
+We welcome contributions to the **Doc Checker**! If you have suggestions for improvements, bug fixes, or new features, please check out our [Contributing Guidelines](./CONTRIBUTING.md) for more details on how to get started.
+
+Your feedback and contributions are invaluable to making this extension better for everyone. Thank you for your interest in contributing! 🙌
+
+## 📜 License
+
+Licensed under [MIT](https://github.com/BrianSalasHache/doc-checker/blob/main/LICENSE)
+
+Copyright &copy; 2024+
