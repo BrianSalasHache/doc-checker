@@ -55,6 +55,6 @@ Your feedback and contributions are invaluable to making this extension better f
 
 ## 📜 License
 
-Licensed under [MIT](https://github.com/BrianSalasHache/doc-checker/blob/main/LICENSE)
+Licensed under [MIT](./LICENSE)
 
 Copyright &copy; 2024+
