@@ -4,6 +4,11 @@ import { config } from '../../config';
 import { BODY, CLASS, DOCSTRING, FUNCTION, METHOD, MODULE, RAISE, RETURN } from '../../constants/constants';
 import { createDiagnostic } from '../../utils/diagnostic';
 
+type Parameter = {
+    paramName: string;
+    paramType?: string;
+  }
+
 export function analyzePython(rootNode: SyntaxNode, diagnostics: vscode.Diagnostic[]) {
   checkModuleDocstring(rootNode, diagnostics);
   checkClassDocstrings(rootNode, diagnostics);
@@ -99,12 +104,30 @@ function requiresDocstringUpdate(node: SyntaxNode, bodyNode: SyntaxNode, docstri
   return null;
 }
 
-function extractParameters(node: SyntaxNode): string[] {
+function extractParameters(node: SyntaxNode): Parameter[] {
   const parameterNode = node.childForFieldName('parameters');
-  return parameterNode ? parameterNode.namedChildren.map((child) => child.text) : [];
+  
+  const parameters: Parameter[] = [];
+  if (!parameterNode) {
+    return parameters;
+  }
+  parameterNode.namedChildren.map((child) => {
+    const paramText = child.text;
+    if(paramText.includes(':')){
+      const parts = paramText.split(':');
+      const paramName = parts[0];
+      const paramType = parts[1].trim();
+      parameters.push({paramName, paramType} as Parameter);
+    } else
+    {
+      parameters.push({paramName: paramText} as Parameter);
+    }
+  });
+
+  return parameters;
 }
 
-function checkMissingParameters(docstring: string, parameters: string[]): (string | string[])[] | null {
+function checkMissingParameters(docstring: string, parameters: Parameter[]): (string | string[])[] | null {
   const style = detectDocstringStyle(docstring);
   const regex = getParameterRegex(style);
   const documentedParams = new Set(extractDocumentedParameters(docstring, style));
@@ -112,10 +135,10 @@ function checkMissingParameters(docstring: string, parameters: string[]): (strin
   const missingParams = new Set<string>();
 
   parameters.forEach(param => {
-    if (!reservedParameters.has(param) && !isParameterDocumented(docstring, param, regex)) {
-      missingParams.add(param);
+    if (!reservedParameters.has(param.paramName) && !isParameterDocumented(docstring, param.paramName, regex)) {
+      missingParams.add(param.paramName);
     }
-    documentedParams.delete(param);
+    documentedParams.delete(param.paramName);
   });
 
   if (missingParams.size > 0) {
