@@ -101,7 +101,17 @@ function requiresDocstringUpdate(node: SyntaxNode, bodyNode: SyntaxNode, docstri
 
 function extractParameters(node: SyntaxNode): string[] {
   const parameterNode = node.childForFieldName('parameters');
-  return parameterNode ? parameterNode.namedChildren.map((child) => child.text) : [];
+  if (!parameterNode) { return []; }
+
+  return parameterNode?.children.reduce((acc: string[], child) => {
+    if (child.type === "identifier") {
+      acc.push(child.text);
+    } else if (child.type === "typed_parameter") {
+      const identifierNode = child.children.find(subChild => subChild.type === "identifier");
+      if (identifierNode) { acc.push(identifierNode.text); }
+    }
+    return acc;
+  }, []);
 }
 
 function checkMissingParameters(docstring: string, parameters: string[]): (string | string[])[] | null {

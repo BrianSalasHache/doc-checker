@@ -8,7 +8,6 @@ const parser = new Parser();
 export function parseCode(code: string, language: string) {
   switch (language) {
     case 'javascript':
-    case 'typescript':
       parser.setLanguage(JavaScript);
       break;
     case 'python':
@@ -16,6 +15,9 @@ export function parseCode(code: string, language: string) {
       break;
     case 'java':
       parser.setLanguage(Java);
+      break;
+    case 'typescript':
+      parser.setLanguage(require("tree-sitter-typescript").typescript);
       break;
   }
 

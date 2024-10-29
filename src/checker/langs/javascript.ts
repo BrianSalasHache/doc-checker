@@ -103,7 +103,17 @@ function requiresJSDocUpdate(node: SyntaxNode, bodyNode: SyntaxNode, docstring: 
 
 function extractParameters(node: SyntaxNode): string[] {
   const parameterNode = node.childForFieldName('parameters');
-  return parameterNode ? parameterNode.namedChildren.map((child) => child.text) : [];
+  if (!parameterNode) { return []; }
+
+  return parameterNode.children.reduce<string[]>((acc, child) => {
+    if (child.type === 'identifier') {
+      acc.push(child.text);
+    } else if (child.type === 'required_parameter') {
+      const identifierNode = child.children.find(subChild => subChild.type === "identifier");
+      if (identifierNode) { acc.push(identifierNode.text); }
+    }
+    return acc;
+  }, []);
 }
 
 function checkMissingParameters(docstring: string, parameters: string[]): (string | string[])[] | null {
