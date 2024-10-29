@@ -7,12 +7,17 @@ export function createDiagnostic(
   updates: (string | string[])[] | null = null
 ): vscode.Diagnostic {
   const range = createRange(nameNode);
-  return new vscode.Diagnostic(
+  const diagnostic = new vscode.Diagnostic(
     range,
     createMessage(typeNode, nameNode, updates),
     vscode.DiagnosticSeverity.Warning
   );
+
+  diagnostic.source = 'Doc Checker';
+
+  return diagnostic;
 }
+
 
 function createRange(nameNode: SyntaxNode | null): vscode.Range {
   if (!nameNode) { return createRangeFromCoordinates(0, 0, 0, 0); }
@@ -33,7 +38,7 @@ function createRangeFromCoordinates(startRow: number, startColumn: number, endRo
 
 function createMessage(typeNode: string, nameNode: SyntaxNode | null = null, updates: (string | string[])[] | null): string {
   if (!nameNode) {
-    return `The docstring of the ${typeNode} is missing | Doc Checker`;
+    return `The docstring of the ${typeNode} is missing`;
   } else if (updates) {
     let missing = `'${updates[0]}'`;
     let isAre = 'is';
@@ -45,8 +50,8 @@ function createMessage(typeNode: string, nameNode: SyntaxNode | null = null, upd
     }
 
 
-    return `The ${missing} ${isAre} missing in the ${updates[1]} of the '${nameNode.text}' ${typeNode} | Doc Checker`;
+    return `The ${missing} ${isAre} missing in the ${updates[1]} of the '${nameNode.text}' ${typeNode}`;
   }
 
-  return `The docstring of the '${nameNode.text}' ${typeNode} is missing | Doc Checker`;
+  return `The docstring of the '${nameNode.text}' ${typeNode} is missing`;
 }

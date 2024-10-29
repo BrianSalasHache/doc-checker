@@ -18,7 +18,7 @@
 ![Example image](https://github.com/user-attachments/assets/a042897b-00fd-46b1-88b1-a3948a82692c)
 
 ### I recommend using the [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) extension to view the warnings in this way:
-![Example image using Error Lens extension](https://github.com/user-attachments/assets/ca650b98-577a-4146-a828-5d53e072763a)
+![Example image using Error Lens extension](https://github.com/user-attachments/assets/1e4cd443-7818-4ca3-b3c9-52c42cef7722)
 
 
 ## 📦 Install
