@@ -31,11 +31,43 @@
 
 ## 📝 Languages supported
 
-- Python
-- JavaScript
-- TypeScript
-- Java
-- 🚧 More under construction
+<ul style='list-style-type: none;'>
+	<li>
+		<details>
+			<summary><strong>Python</strong></summary>
+			<ul>
+				<li>Google</li>
+				<li>NumPy</li>
+				<li>reST</li>
+			</ul>
+		</details>		
+	</li>
+</ul>
+<ul style='list-style-type: none;'>
+	<li>
+		<details>
+			<summary><strong>JavaScript/TypeScript</strong></summary>
+			<ul>
+				<li>Google Closure</li>
+				<li>JSDoc</li>
+			</ul>
+		</details>		
+	</li>
+</ul>
+<ul style='list-style-type: none;'>
+	<li>
+		<details>
+			<summary><strong>Java</strong></summary>
+			<ul>
+				<li>Javadoc</li>
+			</ul>
+		</details>		
+	</li>
+</ul>
+<ul style='list-style-type: none;'>
+	<li><strong>🚧 More under construction</strong></li>
+</ul>
+
 
 ## ⚙️ Settings
 
@@ -55,11 +87,13 @@
 | return           | **true**   | Check that all functions and methods have updated returns.                                                            |
 | throw            | **true**   | Check that all functions and methods have updated throws.                                                             |
 
+
 ## 🤝 Contributing
 
 We welcome contributions to the **Doc Checker**! If you have suggestions for improvements, bug fixes, or new features, please check out our [Contributing Guidelines](./CONTRIBUTING.md) for more details on how to get started.
 
 Your feedback and contributions are invaluable to making this extension better for everyone. Thank you for your interest in contributing! 🙌
+
 
 ## 📜 License
 
