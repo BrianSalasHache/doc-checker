@@ -38,12 +38,12 @@
         "doc-checker.activateOnChange": {
           "type": "boolean",
           "default": true,
-          "description": "The extension will be activated when a file is changed. Set to 'false' to disable this feature."
+          "description": "The extension will be activated when a file is changed."
         },
         "doc-checker.class": {
           "type": "boolean",
           "default": true,
-          "description": "Check that all classes have a docstring. Set to 'false' to disable this check."
+          "description": "Check that all classes have a docstring."
         },
         "doc-checker.debounceDelay": {
           "type": "number",
@@ -53,7 +53,7 @@
         "doc-checker.function": {
           "type": "boolean",
           "default": true,
-          "description": "Check that all functions have updated docstring. Set to 'false' to disable this check."
+          "description": "Check that all functions have updated docstring."
         },
         "doc-checker.languages": {
           "type": "array",
@@ -68,7 +68,7 @@
         "doc-checker.method": {
           "type": "boolean",
           "default": true,
-          "description": "Check that all methods have updated docstring. Set to 'false' to disable this check."
+          "description": "Check that all methods have updated docstring."
         },
         "doc-checker.mode": {
           "type": "string",
@@ -82,22 +82,22 @@
         "doc-checker.module": {
           "type": "boolean",
           "default": true,
-          "description": "Check that all modules have a docstring. Set to 'false' to disable this check."
+          "description": "Check that all modules have a docstring."
         },
         "doc-checker.parameter": {
           "type": "boolean",
           "default": true,
-          "description": "Check that all functions and methods have updated parameters. Set to 'false' to disable."
+          "description": "Check that all functions and methods have updated parameters."
         },
         "doc-checker.return": {
           "type": "boolean",
           "default": true,
-          "description": "Check that all functions and methods have updated returns. Set to 'false' to disable."
+          "description": "Check that all functions and methods have updated returns."
         },
         "doc-checker.throw": {
           "type": "boolean",
           "default": true,
-          "description": "Check that all functions and methods have updated throws. Set to 'false' to disable."
+          "description": "Check that all functions and methods have updated throws."
         }
       }
     }
